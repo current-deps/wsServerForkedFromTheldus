@@ -90,6 +90,13 @@ struct ws_connection
 };
 
 /**
+ * @brief For the user-provided callback to be stateless.
+ */
+void* extract_extra_void_ptr_from_ws_connection(struct ws_connection* wsc) {
+	return wsc->ws_srv.extra_void_ptr;
+}
+
+/**
  * @brief Clients list.
  */
 static struct ws_connection client_socks[MAX_CLIENTS];

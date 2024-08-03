@@ -226,6 +226,7 @@ extern "C" {
 
 	/* Opaque client connection type. */
 	typedef struct ws_connection ws_cli_conn_t;
+	void* extract_extra_void_ptr_from_ws_connection(struct ws_connection*);
 
 	/**
 	 * @brief events Web Socket events types.
@@ -274,6 +275,10 @@ extern "C" {
 		 * @brief Server events.
 		 */
 		struct ws_events evs;
+		/**
+		 * @brief For the user callback to be stateless.
+		 */
+		void* extra_void_ptr;
 	};
 
 	/* Forward declarations. */
